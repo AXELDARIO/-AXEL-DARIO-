@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Música</title>
+    <style>
+        body {
+            background-image: url('FONDO4.JPG');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: rgb(248, 248, 248);
+        }
+
+        h5 {
+    font-size: 1rem; /* Tamaño de letra personalizado */
+    color: white; /* Cambia el color a blanco */
+    text-align: center; /* Centrar el texto */
+    margin: 10px 0; /* Espaciado alrededor del h5 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+}
+
+
+        p {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: rgb(14, 14, 105);
+            background-color: rgba(255, 255, 255, 0.856);
+            padding: 20px;
+            text-align: center;
+            width: 70%;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: silver;
+            border: 2px solid black;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 20px blue;
+        }
+
+        .container {
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Cambiado para alinear a la izquierda */
+            margin: 20px 0;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .imagen {
+            border-radius: 50%;
+            box-shadow: 0px 0px 15px 15px #1e3dec;
+            transition: transform 0.3s;
+            margin-right: 20px; /* Espacio entre la imagen y el texto */
+        }
+
+        .imagen:hover {
+            transform: scale(1.05);
+        }
+
+        .texto {
+            display: flex; /* Para centrar el texto y el botón */
+            flex-direction: column; /* Apila el texto y el botón verticalmente */
+            align-items: center; /* Centra horizontalmente */
+        }
+
+        @keyframes girarDisco {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Música</h1>
+    <p>Toca las portadas para escuchar mi música :3</p>
+
+    <div class="container">
+        <img class="imagen imagen1" src="SINGLE-1.jpg" alt="pres" height="400" width="400">
+        <div class="texto">
+            <p>You And I: Together Are The Best In The Universe</p>
+            <H5>Prod: Hieloways</H5>
+            <button onclick="window.open('letraYOUANDI.html')">Letra</button>
+        </div>
+        <audio id="audio1" src="single1audio.wav"></audio>
+    </div>
+
+    <div class="container">
+        <img class="imagen imagen2" src="SINGLE-22.jpg" alt="dont play?" height="400" width="400">
+        <div class="texto">
+            <p>This Night: We'll Be So Close To Heaven</p>
+            <H5>Prod: LM25 Music</H5>
+            <button onclick="window.open('letraTHISNIHGT.html')">Letra</button>
+        </div>
+        <audio id="audio2" src="single2audio.wav"></audio>
+    </div>
+
+    <div class="container">
+        <img class="imagen imagen3" src="SINGLE-3.png" alt="play" height="400" width="400">
+        <div class="texto">
+            <p>You Will Never Wrong: I Was Never Wrong </p>
+            <H5>Prod: Dan Darmawan</H5>
+            <button onclick="window.open('letraYWNW.html')">Letra</button>
+        </div>
+        <audio id="audio3" src="single3audio.wav"></audio>
+    </div>
+
+    <!-- Agregar las nuevas canciones -->
+    <div class="container">
+        <img class="imagen imagen4" src="SINGLE-4.png" alt="new song ft enki" height="400" width="400">
+        <div class="texto">
+            <p>I Love You Cat FT: Enki. VT</p>
+            <H5>Prod: ROMI</H5>
+            <button onclick="window.open('letrailyc.html')">Letra</button>
+        </div>
+        <audio id="audio4" src="single4audio.wav"></audio>
+    </div>
+
+    <div class="container">
+        <img class="imagen imagen5" src="SINGLE-5.jpg" alt="new song 2" height="400" width="400">
+        <div class="texto">
+            <p>What Is Love? : The Universal Language"</p>
+            <H5>Prod: Mew Beats</H5>
+            <button onclick="window.open('letrawil.html')">Letra</button>
+        </div>
+        <audio id="audio5" src="single5audio.wav"></audio>
+    </div>
+
+    <script>
+        const imagenes = document.querySelectorAll('.imagen');
+        const audios = {
+            'imagen1': document.getElementById('audio1'),
+            'imagen2': document.getElementById('audio2'),
+            'imagen3': document.getElementById('audio3'),
+            'imagen4': document.getElementById('audio4'),
+            'imagen5': document.getElementById('audio5')
+        };
+
+        imagenes.forEach(imagen => {
+            imagen.addEventListener('click', () => {
+                const audioId = imagen.classList[1];
+                const audio = audios[audioId];
+
+                for (const id in audios) {
+                    if (id !== audioId && audios[id].paused === false) {
+                        audios[id].pause();
+                        imagenes.forEach(img => img.style.animation = '');
+                    }
+                }
+
+                if (audio.paused) {
+                    audio.play();
+                    imagen.style.animation = 'girarDisco 5s linear infinite';
+                } else {
+                    audio.pause();
+                    imagen.style.animation = '';
+                }
+            });
+        });
+
+        const audiosKeys = Object.keys(audios);
+        audiosKeys.forEach(key => {
+            audios[key].addEventListener('ended', () => {
+                imagenes.forEach(img => img.style.animation = '');
+            });
+        });
+    </script>
+</body>
+</html>
+
+

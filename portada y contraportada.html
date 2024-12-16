@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .imagen-contenedor {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+  <br>
+  <button onclick="mostrarImagen1()">Revelar Portada </button>
+
+  <button onclick="mostrarImagen2()">Revelar ContraPortada</button>
+  <br>
+  <br>
+  <canvas class="imagen-contenedor" id="imagenCanvas" width="500" height="500"></canvas>
+
+  <script>
+    function mostrarImagen1() {
+      const canvas = document.getElementById('imagenCanvas');
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.src = "COVER.jpg"; // Reemplaza con la ruta de tu imagen
+
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+
+        const imageData = ctx.getImageData(0, 0, img.width, img.height);
+        const pixels = [];
+
+        for (let y = 0; y < img.height; y++) {
+          for (let x = 0; x < img.width; x++) {
+            const i = (y * img.width + x) * 4;
+            const r = imageData.data[i];
+            const g = imageData.data[i + 1];
+            const b = imageData.data[i + 2];
+            const a = imageData.data[i + 3];
+            pixels.push({ x, y, r, g, b, a });
+          }
+        }
+
+        pixels.sort(() => Math.random() - 0.5); // Aleatorizar el orden de los píxeles
+
+        let revealedPixels = 0;
+        const intervalId = setInterval(() => {
+          const pixelCount = Math.min(100, pixels.length - revealedPixels); // Ajusta el número de píxeles revelados por frame
+          for (let i = 0; i < pixelCount; i++) {
+            const pixel = pixels[revealedPixels + i];
+            ctx.fillStyle = `rgba(${pixel.r}, ${pixel.g}, ${pixel.b}, ${pixel.a / 255})`;
+            ctx.fillRect(pixel.x, pixel.y, 1, 1);
+          }
+          revealedPixels += pixelCount;
+          if (revealedPixels >= pixels.length) {
+            clearInterval(intervalId);
+          }
+        }, 100); // Ajusta el intervalo de actualización
+      };
+    }
+
+    // Función mostrarImagen2() similar a mostrarImagen1()
+  </script>
+</body>
+</html>

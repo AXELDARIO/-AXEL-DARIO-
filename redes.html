@@ -1,0 +1,115 @@
+<html>
+<body bgcolor="#b5c1c0">
+<br>
+<br>
+<BR>
+<br>
+<p style="text-align: center; color: rgb(14, 14, 105); font-family: Lucida Bright, sans-serif; background-color: rgba(255, 255, 255, 0.856); width: 30%; margin: 0 auto; font-size: 2.2em; font-weight: bold;">Mis Redes Sociales</p>
+<br>
+<br>
+<p SIZE="0" style="text-align: center;  font-family: Lucida Bright, sans-serif; background-color: rgba(255, 255, 255, 0.623);  width: 50%; margin: 0 auto; font-size: 1.2em; text-align: justify; " >Puedes tocar cada icono para seguirme :3</p>
+<br>
+<BR><BR><BR><BR><BR>
+<CENTER>
+    <div class="image-container">
+    <BR><BR>
+  <div class="contenedor">
+    <img class="imagen imagen1" src="youtubelog.png" alt="YouTube" height="100" width="100" data-link="https://www.youtube.com/channel/UCbRbzyq1rkuq5idnt6H8K3g">
+  </div>
+<BR><BR><BR><BR>
+  <div class="contenedor">
+    <img class="imagen imagen2" src="instagramlog.png" alt="Instagram" height="100" width="100" data-link="https://www.instagram.com/axel_dario24/">
+  </div>
+  <BR><BR><BR><BR>
+  <div class="contenedor">
+    <img class="imagen imagen3" src="soundcloudlog.png" alt="SoundCloud" height="100" width="100" data-link="https://on.soundcloud.com/23zuX9FVKKoCrp9Y8">
+  </div>
+  <BR><BR><BR><BR>
+  <div class="contenedor">
+    <img class="imagen imagen4" src="facebooklog.png" alt="Facebook" height="100" width="100" data-link="ERROR.HTML">
+  </div>
+  <BR><BR><BR><BR>
+  <div class="contenedor">
+    <img class="imagen imagen5" src="tiktoklog.png" alt="TikTok" height="100" width="100" data-link="https://www.tiktok.com/@axelito_en_la_interweb">
+  </div>
+  <BR><BR><BR><BR>
+</div>
+</CENTER>
+  <script>
+    
+const imagenes = document.querySelectorAll('.imagen');
+
+imagenes.forEach(imagen => {
+  imagen.addEventListener('click', () => {
+    const link = imagen.dataset.link;
+    window.open(link, '_blank');
+
+    // Agregamos la clase 'active' para iniciar la animación
+    imagen.classList.add('active');
+
+    // Eliminamos la clase 'active' después de un tiempo (por ejemplo, 0.5 segundos)
+    setTimeout(() => {
+      imagen.classList.remove('active');
+    }, 500);
+  });
+});
+   
+  </script>
+
+
+<style type="text/css">
+ 
+ .imagen {
+      border-radius: 50%;
+      box-shadow: 0px 0px 15px 15px #1e3dec;
+      cursor: pointer;
+    }
+
+    .contenedor:hover .imagen {
+      -webkit-transform: scale(1.3);
+      transform: scale(1.3);
+    }
+
+    .image-container {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center; 
+  width: 90%; 
+}
+
+.image-container img {
+  margin: 10px; 
+}
+
+   
+
+
+    
+
+button {
+    background-color: silver;
+    border: 2px solid black;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+body{
+	background-image: url('FONDO3.JPG');
+	background-repeat: no-repeat;
+	
+}
+
+</style>
+</head>
+</BODY>
+</HTML>
+
+
+
