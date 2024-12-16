@@ -2,7 +2,7 @@ const boton = document.getElementById('descubriri');
 const fraseDiv = document.getElementById('frase');
 const listaDiv = document.getElementById( 'lista');
 const frases = ["You And I", "Future Lovers", "This Night", "All About You", "A New Dimencion", "What Is Love?", "I Miss You (us)", "I Love You Cat Ft. Enki. Vt", "You Will Never Wrong, IWNW", "Its a Litle Blury (Reary For Another Strom)", "Sometimes I Cry For You",  "I See You Again", "The Last Time", ];
-const audios = ["You And I.WAV", "Future Lovers.WAV", "This Night.WAV", "All About You.wav", "anew.wav", "What Is Love.wav", "imissyou.wav",  "I Love You Cat.wav", "You Will Never Wrong.wav", "Its a Litle Blury (Reary For Another Strom).wav", "Sometimes I Cry For You.wav","I See You Again.wav", "The Last Time.wav"];
+const audios = ["You And I.wav", "Future Lovers.wav", "This Night.wav", "All About You.wav", "anew.wav", "What Is Love.wav", "imissyou.wav",  "I Love You Cat.wav", "You Will Never Wrong.wav", "Its a Litle Blury (Reary For Another Strom).wav", "Sometimes I Cry For You.wav","I See You Again.wav", "The Last Time.wav"];
 let indiceFrase = 0; // Índice para recorrer las frases
 let currentAudio = null; // Variable para almacenar el audio actual
 
